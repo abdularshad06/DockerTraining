@@ -50,8 +50,21 @@ docker logs CONTAINER_ID
 
 * Build and image
 docker build .          # . for current directory
+or from other folder
 docker build Docker_File/ -t web:v1
+docker run -itd web:v1
+docker ps
+docker ps -a 
+
+
+* 
+docker push web:v1
+docker tag web:v1 
+docker tag web:v1 abdularshad/web:v2
 
 
 
+
+
+docker image rm web:v1
 
