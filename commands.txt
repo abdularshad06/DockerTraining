@@ -1,0 +1,57 @@
+yum install docker -y
+
+systemctl start docker
+systemctl enable docker
+
+docker info
+
+docker login
+
+docker logout
+
+docker run debian
+docker ps
+docker ps -a
+docker history debian
+
+docker search debian
+docker search httpd
+
+docker run ansible
+docker run mongodb
+docker run redis
+docker run nodejs
+
+docker run nginx
+docker ps
+docker ps -a
+
+docker pull httpd
+docker images
+
+docker image prune  --> # it will remove dangling images
+
+docker inspect CONTAINER_ID
+
+* Container resource utiliztion.
+docker stats
+
+* save image in tar file --> copy it into another machine via scp and we can use it as well
+docker save nginx   > load.tar
+
+* import image into other machine
+docker load --input load.tar
+
+*
+docker run ubuntu sleep 5  # sleep container to 5 sec.
+
+* To see logs
+docker logs CONTAINER_ID
+
+* Build and image
+docker build .          # . for current directory
+docker build Docker_File/ -t web:v1
+
+
+
+
