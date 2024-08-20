@@ -57,14 +57,54 @@ docker ps
 docker ps -a 
 
 
-* 
+* push container image into docker hub.
 docker push web:v1
 docker tag web:v1 
 docker tag web:v1 abdularshad/web:v2
 
-
-
-
-
 docker image rm web:v1
+
+
+* Run alpine image and remove after stop and sleed it for 1300 sec.
+docker run --rm -d alpine sleep 1300
+
+ps -auxx | grep 'sleep 1300'
+
+
+docker run --cpus=.5 ubuntu
+docker run --memory=100m ubuntu
+
+* Docker main directory
+cd /var/lib/docker
+
+docker volume create test3
+docker volume ls
+docker volume inspect test3
+docker run -it -v test1:/volume-shared --name container-001 ubuntu
+docker run -it -v test1:/volume-shared --name container-002 ubuntu
+
+docker volume rm test3
+
+
+* Stop all exted containers
+docker container prune
+
+* port maping
+docker run -p 80:5000 mywebapp
+docker run -p 8000:5000 mywebapp
+docker run -p 8001:5000 mywebapp
+docker run -p 3306:3306 mysql
+docker run -p 8306:3306 mysql
+
+
+* Build and run container for Docker_File1
+docker build -t web:v1 .
+docker run --rm --name web1 -it -d web:v1
+docker container stats 52fbdf9161af
+
+
+docker run -itd -p 8000:80 web:v1
+
+* docker network
+docker network ls
 
